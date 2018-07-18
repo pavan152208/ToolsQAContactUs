@@ -1,5 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" time="0">
-<testcase classname="dummy" name="dummy">
-<skipped message="No features found"/>
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="55.408872">
+<testcase classname="ToolsQA Contact Us Feature" name="Passing empty values into contact us and click on send message" time="55.408872">
+<system-out><![CDATA[Given user opens browser....................................................passed
+Then validate Toolsqa home page title.......................................passed
+Then user clicks on About link..............................................passed
+Then validate Contact Us page title.........................................passed
+Then user directly clicks on send message button in Contact Us Page.........passed
+Then Close the browser......................................................passed
+]]></system-out>
 </testcase>
 </testsuite>

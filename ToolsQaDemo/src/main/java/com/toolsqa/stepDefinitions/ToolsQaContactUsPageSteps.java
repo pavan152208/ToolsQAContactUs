@@ -1,5 +1,7 @@
 package com.toolsqa.stepDefinitions;
 
+
+
 import com.toolsqa.pages.ContactUsPage;
 import com.toolsqa.pages.ToolsqaHomePage;
 import com.toolsqa.util.SeleniumTestBase;
@@ -46,8 +48,20 @@ public class ToolsQaContactUsPageSteps extends SeleniumTestBase  {
 		contactusPage.ContactInfo(prop.getProperty("name"), prop.getProperty("email"), prop.getProperty("message"), prop.getProperty("feedback"));
 	 }
 	
+	@Then("^user directly clicks on send message button in Contact Us Page$")
+	public void user_directly_clicks_on_send_message_button_Contact_Us_Page() throws Throwable {
+		contactusPage = new ContactUsPage();
+		contactusPage.validateContactUsPage(prop.getProperty("errorMessage"));
+	 }
+	
+	@Then("^user enters \"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\" in Contact Us Page$")
+	public void User_enters_username_and_password(String name, String email, String message)  {
+		contactusPage = new ContactUsPage();
+		contactusPage.ContactInfo(name, email, message, prop.getProperty("feedback"));
+	}
+	
 	@Then("^Close the browser$")
 	public void close_the_browser(){
-		driver.quit();
+		driver.close();
 	}
 }

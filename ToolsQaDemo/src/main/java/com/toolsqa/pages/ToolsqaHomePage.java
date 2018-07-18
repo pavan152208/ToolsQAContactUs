@@ -32,7 +32,7 @@ public class ToolsqaHomePage extends SeleniumTestBase {
 		Actions action = new Actions(driver);
 		action.moveToElement(aboutLink).build().perform();
 		//Wait has been used for the element to be visible
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		contactUsLink.click();
 		return new ContactUsPage();
 	}

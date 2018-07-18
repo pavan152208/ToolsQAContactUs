@@ -30,13 +30,13 @@ public class ContactUsPage  extends SeleniumTestBase {
 		@FindBy(xpath="//div[text()='Feedback has been sent to the administrator']")
 		WebElement feedbackMessage;
 		
-		@FindBy(xpath="//span[@class='form-name']//div[contains(@class,'formErrorContent')]")
+		@FindBy(xpath="//span[@class='form-name']//div[contains(text(),'This field is required')]")
 		WebElement formNameErrorContent;
 		
-		@FindBy(xpath="//span[@class='form-mail']//div[contains(@class,'formErrorContent')]")
+		@FindBy(xpath="//span[@class='form-mail']//div[contains(text(),'This field is required')]")
 		WebElement formMailErrorContent;
 		
-		@FindBy(xpath="//span[@class='form-message']//div[contains(@class,'formErrorContent')]")
+		@FindBy(xpath="//span[@class='form-message']//div[contains(text(),'This field is required')]")
 		WebElement formMessageErrorContent;
 		
 		//Initializing page objects
@@ -71,5 +71,21 @@ public class ContactUsPage  extends SeleniumTestBase {
 			WebDriverWait wait=new WebDriverWait(driver, 20);
 			feedbackMessage= wait.until(ExpectedConditions.visibilityOf(feedbackMessage));
 			Assert.assertEquals(feedbackMessage.getText(),feedback);
+		}
+		//Validate all the required fields in contact us page and check for validations
+		public void validateContactUsPage(String errorMessage)
+		{
+			//Java script executor is used to scroll down the web page 
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollBy(200,500)");
+			Actions action = new Actions(driver);
+			action.moveToElement(sendMessage);
+			action.click();
+			action.build().perform();
+			WebDriverWait wait=new WebDriverWait(driver, 10);
+			formNameErrorContent= wait.until(ExpectedConditions.visibilityOf(formNameErrorContent));
+			Assert.assertTrue(formNameErrorContent.getText().contains(errorMessage));
+			Assert.assertTrue(formMailErrorContent.getText().contains(errorMessage));
+			Assert.assertTrue(formMessageErrorContent.getText().contains(errorMessage));
 		}
  }

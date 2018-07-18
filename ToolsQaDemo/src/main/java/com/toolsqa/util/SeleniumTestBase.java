@@ -17,7 +17,7 @@ public class SeleniumTestBase {
 	public SeleniumTestBase() {
 		try{
 			prop = new Properties();
-			FileInputStream fis= new FileInputStream("C:/Users/Pavan/workspace/ToolsqaContactUsDemo/src/main/java/com/toolsqa/config/config.properties");
+			FileInputStream fis= new FileInputStream("C:/Users/Pavan/git/ToolsQaDemo/src/main/java/com/toolsqa/config/config.properties");
 			prop.load(fis);
 		}catch(IOException e)
 		{
