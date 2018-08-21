@@ -9,5 +9,6 @@ Highlights:
 This project has been developed using BDD framework in order to rasily understand the functionality.
 This has been implement using page object model for code reusability and maintainablity.
 Actions class and Javascript executor have been used in order to identify element and click on it.
+Please contact in case of any issues.
 
 
